@@ -18,7 +18,6 @@ def forget_widgets():
 
 def button_handler(event):
     global button_handler_i
-    global login_label
     login = login_entry.get()
     password = pass_entry.get()
 
