@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+    <form action="index" method="post" novalidate>
+        {{form.hidden_tag()}}
+        <p>
+            {{form.user_name.label}} <br>
+            {{form.user_name(size=32)}}
+        </p>
+        <p>
+            {{form.submit}}
+        </p>
+    </form>
+</body>
+</html>
