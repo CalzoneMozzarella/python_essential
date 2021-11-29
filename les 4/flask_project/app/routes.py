@@ -8,7 +8,8 @@ def index():
     title = 'Login page'
     form = forms.EnterNameForm()
 
-    data = request.form.get('user_name')
+    data = request.form.get('login')
+    print(type(forms.EnterNameForm.submit))
     print(type(data))
     print(data)
 

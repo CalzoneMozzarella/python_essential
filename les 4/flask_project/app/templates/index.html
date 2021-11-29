@@ -5,15 +5,23 @@
     <title>{{title}}</title>
 </head>
 <body>
-    <form action="index" method="post" novalidate>
-        {{form.hidden_tag()}}
-        <p>
-            {{form.user_name.label}} <br>
-            {{form.user_name(size=32)}}
-        </p>
-        <p>
-            {{form.submit}}
-        </p>
-    </form>
+<form action="index" method="post" novalidate>
+    {{form.hidden_tag()}}
+    <h1>Sign in</h1>
+    <p>
+        {{form.login.label}}
+        {{form.login(size=32)}}
+    </p>
+    <p>
+        {{form.password.label}}
+        {{form.password(size=32)}}
+    <p>
+        {{form.add_user}}
+        {{form.add_user.label}}
+    </p>
+    <p>
+        {{form.submit}}
+    </p>
+</form>
 </body>
 </html>
