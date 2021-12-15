@@ -1,15 +1,20 @@
 from app import app, forms
-from flask import render_template, request
+from flask import render_template, request, flash, redirect, url_for
 
 
 @app.route('/')
 @app.route('/index', methods=['GET','POST'])
 def index():
     title = 'Login page'
-    form = forms.EnterNameForm()
+    form = forms.LoginForm()
+
+    if form.validate_on_submit():
+        flash('Login requested for user {}, remember_me={}'.format(
+            form.login.data, form.password.data))
+        return redirect(url_for('index'))
 
     data = request.form.get('login')
-    print(type(forms.EnterNameForm.submit))
+    print(type(forms.LoginForm.submit))
     print(type(data))
     print(data)
 
