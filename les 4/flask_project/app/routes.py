@@ -14,9 +14,9 @@ def index():
         return redirect(url_for('index'))
 
     data = request.form.get('login')
-    print(type(forms.LoginForm.submit))
-    print(type(data))
-    print(data)
+    # print(type(forms.LoginForm.submit))
+    # print(type(data))
+    # print(data)
 
     return render_template('index.html', title=title, form=form)
 
