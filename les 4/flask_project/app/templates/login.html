@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+<form action="login" method="post" novalidate>
+    {{form.hidden_tag()}}
+    <h1>Sign in</h1>
+    <p>
+        {{form.login.label}}<br>
+        {{form.login(size=32)}}
+        {% for error in form.login.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{form.password.label}}<br>
+        {{form.password(size=32)}}
+        {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    <p>
+        {{form.add_user}}
+        {{form.add_user.label}}
+    </p>
+    <p>
+        {{form.submit}}
+    </p>
+</form>
+<hr>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+    {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+<p>
+        <a href="/index">index</a>
+</p>
+</body>
+</html>
