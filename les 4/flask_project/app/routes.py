@@ -22,14 +22,17 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('login'))
+        return redirect(url_for('index'))
 
     title = 'Login page'
     form = forms.LoginForm()
 
+    # u = User(username='Irina_1959', email='Irina_1959@example.com')
+    # u.set_password('123456')
+
+
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.login.data).first()
-        print(User.query.filter_by(username='Irina_1959').first())
         if user is None or not user.check_password(form.password.data):
             flash('Invalid username or password')
             return redirect(url_for('login'))
